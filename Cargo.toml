@@ -7,3 +7,6 @@ edition = "2018"
 [dependencies]
 log4rs = "1.0.0"
 log = "0.4.14"
+kube = "0.59.0"
+k8s-openapi = { version = "0.13.0", default-features = false, features = ["v1_19"] }
+tokio = { version = "1.10.1", features = ["full"] }
