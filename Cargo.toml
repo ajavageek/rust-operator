@@ -5,6 +5,7 @@ authors = ["Nicolas Frankel <nicolas at frankel dot ch>"]
 edition = "2018"
 
 [dependencies]
+futures = "0.3.16"
 log4rs = "1.0.0"
 log = "0.4.14"
 kube = "0.59.0"
