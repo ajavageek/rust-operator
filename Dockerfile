@@ -1,5 +1,5 @@
-# docker build -t rust-operator:1a .
-FROM rust:1.52-buster as build
+# docker build -t rust-operator:1b .
+FROM ekidd/rust-musl-builder:1.51.0 as build
 
 WORKDIR /app
 
@@ -9,15 +9,11 @@ COPY Cargo.toml .
 
 RUN cargo build --release
 
-FROM debian:buster-slim
+FROM alpine
 
 WORKDIR /app
 
-RUN apt-get update \
- && apt-get install -y libssl-dev \
- && rm -rf /var/lib/apt/lists/*
-
-COPY --from=build /app/target/release/rust-operator /app
+COPY --from=build /app/target/x86_64-unknown-linux-musl/release/rust-operator /app
 COPY log4rs.yml .
 
 CMD ["./rust-operator"]
