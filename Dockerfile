@@ -1,4 +1,4 @@
-# docker build -t rust-operator:1b .
+# docker build -t rust-operator:1c .
 FROM ekidd/rust-musl-builder:1.51.0 as build
 
 WORKDIR /app
@@ -9,7 +9,7 @@ COPY Cargo.toml .
 
 RUN cargo build --release
 
-FROM alpine
+FROM scratch
 
 WORKDIR /app
 

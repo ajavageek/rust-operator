@@ -46,5 +46,5 @@ spec:
   serviceAccountName: operator-service
   containers:
     - name: custom-operator
-      image: rust-operator:1b
+      image: rust-operator:1c
       imagePullPolicy: Never
